@@ -1,0 +1,43 @@
+﻿@model EvaluacionVehiculosMVC.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <div>@ViewBag.Mensaje</div>
+            @using (Html.BeginForm("Autenticacion", "Login", new { @class = "login-form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                
+                @Html.TextBoxFor(model => model.Usuario, new { @placeholder = "11222333-K" })
+                @Html.ValidationMessageFor(model => model.Usuario)
+                
+                @Html.TextBoxFor(model => model.Password, new { @type = "password", @placeholder = "Password" })
+                @Html.ValidationMessageFor(model => model.Password)
+
+                <input type="submit" class="button" value="Ingresar" />
+            }
+        </div>
+    </div>
+
+    
+
+</body>
+</html>

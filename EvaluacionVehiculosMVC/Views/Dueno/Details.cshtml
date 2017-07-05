@@ -1,0 +1,57 @@
+﻿@model EvaluacionVehiculosMVC.DataModels.Dueno
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles Due&ntilde;o</h2>
+<hr />
+    <fieldset>
+        <legend></legend>
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.IdDueno)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.IdDueno)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.RUT)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.RUT)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Nombre)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nombre)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Apellido)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Apellido)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Telefono)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Telefono)
+        </div>
+    
+        <div class="display-label">    
+             @Html.DisplayNameFor(model => model.FechaRegistro)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </div>
+    </fieldset>
+       <br />
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id=Model.IdDueno }) |
+        @Html.ActionLink("Regresar", "Index")
+    </p>

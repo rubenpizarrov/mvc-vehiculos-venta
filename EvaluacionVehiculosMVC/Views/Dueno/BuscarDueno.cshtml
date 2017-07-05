@@ -1,0 +1,69 @@
+﻿@model EvaluacionVehiculosMVC.DataModels.Dueno
+
+@{
+    ViewBag.Title = "Buscar Dueño";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Buscar Due&ntilde;o</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdDueno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RUT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.IdDueno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.RUT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.FechaRegistro)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.IdDueno }) |
+                @Html.ActionLink("Details", "Details", new { id = Model.IdDueno }) |
+                @Html.ActionLink("Delete", "Delete", new { id = Model.IdDueno }) |
+                @Html.ActionLink("Listar Vehículos", "ListaDueno", "Vehiculo", new { id = Model.IdDueno }, null)
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+<div>
+    @Html.ActionLink("Regresar", "Index", "Dueno")
+</div>

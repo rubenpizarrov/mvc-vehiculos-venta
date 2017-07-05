@@ -1,0 +1,34 @@
+﻿@model EvaluacionVehiculosMVC.Models.VehiculosDuenos
+
+
+
+    @using (Html.BeginForm("DetalleVenta", "Venta"))
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Patente)</th>
+                    <th>@Html.DisplayNameFor(model => model.Marca)</th>
+                    <th>@Html.DisplayNameFor(model => model.Modelo)</th>
+                    <th>@Html.DisplayNameFor(model => model.Anno)</th>
+                    <th>@Html.DisplayNameFor(model => model.PrecioEnUF)</th>
+                    <th>Comprar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(model => model.Patente)</td>
+                    <td>@Html.DisplayFor(model => model.Marca)</td>
+                    <td>@Html.DisplayFor(model => model.Modelo)</td>
+                    <td>@Html.DisplayFor(model => model.Anno)</td>
+                    <td>@Html.DisplayFor(model => model.PrecioEnUF)</td>
+                    <td>
+                        @Html.HiddenFor(model => model.IdDueno)
+                        @Html.HiddenFor(model => model.IdVehiculo)
+                        <input type="submit" class="btnComprar" value="Comprar" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+    }

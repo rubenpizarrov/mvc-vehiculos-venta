@@ -1,0 +1,63 @@
+﻿@model EvaluacionVehiculosMVC.DataModels.Vehiculo
+
+@{
+    ViewBag.Title = "Eliminar Vehículo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar Veh&iacute;culo</h2>
+<hr />
+<h3>¿Está seguro que desea eliminar este Veh&iacute;culo?</h3>
+<fieldset>
+    <legend></legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdVehiculo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdVehiculo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Patente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Patente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdDueno)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdDueno)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Marca)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Marca)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Modelo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Modelo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Anno)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Anno)
+    </div>
+</fieldset>
+<br />
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Eliminar" /> |
+        @Html.ActionLink("Regresar", "Index", "Dueno")
+    </p>
+}

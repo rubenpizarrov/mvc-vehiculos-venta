@@ -1,0 +1,78 @@
+﻿@model EvaluacionVehiculosMVC.Models.VehiculosDuenos
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+
+    //Funcion que llena el #cboVehiculos(DropDownList)
+    function damelaData() {
+        var algo = $('#cboVehiculos').val();
+
+        $.ajax({
+            url: '@Url.Action("DetallesVehiculo", "Venta")',
+            method: 'GET',
+            cache: false,
+            data: { id: algo },
+            datatype: 'html'
+        })
+            .done(function (data) {
+                $('#divDetalle')
+                    .html(data)
+                    .slideDown();
+            })
+            .fail(function () { alert('ERRRROR') })
+    }
+
+    function hideDetalle() {
+        $('#divDueno').slideUp();
+        $('#divDetalle').slideUp(); 
+    }
+
+    function showDetalle() {
+        $('#divDueno').slideDown();
+    }
+
+    //function Failure(result)
+    //{
+    //    $('#buscar').text('<h4>No se ha encontrado el RUT</h4>');
+    //    alert(typeof(result));
+    //}
+
+    //function Success(result) {
+    //    if (result)
+    //    {
+    //        alert(result);
+    //    }
+    //}
+
+
+</script>
+
+<h3>Proceso de Venta</h3>
+@using (Ajax.BeginForm("BuscaDuenoVehiculo", "Venta",
+        new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "divDuenoVista"
+        }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="buscar">
+        @Html.Label("Buscar Dueño:")<br />
+        <input class="text-box single-line" onkeypress="hideDetalle();" placeholder="Formato RUT: 11222333K" data-val="true" data-val-length="El Debe contener a lo menos 8 caracteres" data-val-length-max="9" data-val-length-min="8" data-val-required="Debe Ingresar un RUT." id="RUT" name="RUT" value="" />
+        <input type="submit" id="buscar" value="Buscar" /><span class="field-validation-valid" data-valmsg-for="RUT" data-valmsg-replace="true"></span><div id="validation"></div>
+        
+    </div>
+}
+<br />
+<hr />
+<br />
+
+<div id="divDuenoVista"></div>
+<div id="divDueno"></div>
+<div id="divDetalle"></div>
+
+<script src="~/Scripts/formatorut_patente.js"></script>

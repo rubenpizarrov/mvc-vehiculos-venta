@@ -1,0 +1,72 @@
+﻿@model EvaluacionVehiculosMVC.DataModels.Vehiculo
+
+@{
+    ViewBag.Title = "Editar Vehiculo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar Veh&iacute;culo</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Editar Veh&iacute;culo</legend>
+
+
+        @Html.HiddenFor(model => model.IdVehiculo)
+        @Html.HiddenFor(model => model.IdDueno)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Patente)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Patente, new { @readonly = "readonly" })
+            @Html.ValidationMessageFor(model => model.Patente)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Marca)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Marca)
+            @Html.ValidationMessageFor(model => model.Marca)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Modelo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Modelo)
+            @Html.ValidationMessageFor(model => model.Modelo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Anno)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Anno)
+            @Html.ValidationMessageFor(model => model.Anno)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrecioEnUF)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrecioEnUF)
+            @Html.ValidationMessageFor(model => model.PrecioEnUF)
+        </div>
+        <br />
+        <p>
+            <input type="submit" value="Actualizar" />
+        </p>
+    </fieldset>
+}
+<br />
+<div>
+    @Html.ActionLink("Regresar", "ListaDueno", new { id = Model.IdDueno })
+</div>
+
+@Scripts.Render("~/bundles/myscripts")

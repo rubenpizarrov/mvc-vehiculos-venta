@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="TestConexion">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestConexionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestConexionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userAlumno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passwordAlumno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="tns:UserAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserAlumno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsValudOrMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUFValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dateOfUF" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUFValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUFValueResult" type="tns:UFValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UFValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UFDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UFValues" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsValudOrMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoggedPurchase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="purchaseMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoggedPurchaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoggedPurchaseResult" type="tns:LogUseResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogUseResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LogStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TestConexionSoapIn">
+    <wsdl:part name="parameters" element="tns:TestConexion" />
+  </wsdl:message>
+  <wsdl:message name="TestConexionSoapOut">
+    <wsdl:part name="parameters" element="tns:TestConexionResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUFValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUFValue" />
+  </wsdl:message>
+  <wsdl:message name="GetUFValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUFValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoggedPurchaseSoapIn">
+    <wsdl:part name="parameters" element="tns:LoggedPurchase" />
+  </wsdl:message>
+  <wsdl:message name="LoggedPurchaseSoapOut">
+    <wsdl:part name="parameters" element="tns:LoggedPurchaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSEvaluacionInacapSoap">
+    <wsdl:operation name="TestConexion">
+      <wsdl:input message="tns:TestConexionSoapIn" />
+      <wsdl:output message="tns:TestConexionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUFValue">
+      <wsdl:input message="tns:GetUFValueSoapIn" />
+      <wsdl:output message="tns:GetUFValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoggedPurchase">
+      <wsdl:input message="tns:LoggedPurchaseSoapIn" />
+      <wsdl:output message="tns:LoggedPurchaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSEvaluacionInacapSoap" type="tns:WSEvaluacionInacapSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestConexion">
+      <soap:operation soapAction="http://tempuri.org/TestConexion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUFValue">
+      <soap:operation soapAction="http://tempuri.org/GetUFValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoggedPurchase">
+      <soap:operation soapAction="http://tempuri.org/LoggedPurchase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSEvaluacionInacapSoap12" type="tns:WSEvaluacionInacapSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestConexion">
+      <soap12:operation soapAction="http://tempuri.org/TestConexion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUFValue">
+      <soap12:operation soapAction="http://tempuri.org/GetUFValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoggedPurchase">
+      <soap12:operation soapAction="http://tempuri.org/LoggedPurchase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSEvaluacionInacap">
+    <wsdl:port name="WSEvaluacionInacapSoap" binding="tns:WSEvaluacionInacapSoap">
+      <soap:address location="http://wsinacap.azurewebsites.net/WSEvaluacionInacap.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSEvaluacionInacapSoap12" binding="tns:WSEvaluacionInacapSoap12">
+      <soap12:address location="http://wsinacap.azurewebsites.net/WSEvaluacionInacap.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

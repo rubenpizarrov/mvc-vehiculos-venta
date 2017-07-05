@@ -1,0 +1,48 @@
+﻿@{
+    if (Session["usename"] == null && Session["usercode"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="menu">
+                <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                <li>@Html.ActionLink("Dueños", "Index", "Dueno")</li>
+                <li>@Html.ActionLink("Vehículos", "Index", "Vehiculo")</li>
+                <li>@Html.ActionLink("Ventas", "Index", "Venta")</li>
+            </ul>
+            <div>@Html.ActionLink("LogOut", "LogOut", "Login")</div>
+           
+            @{
+                string user = Session["username"].ToString();
+                string[] newuser = user.Split(' ');
+                string userName = newuser[2].ToString() + " " + newuser[0].ToString() + " " + newuser[1].ToString();
+                 
+            }
+            <h3>Bienvenido @userName.</h3>
+
+            
+        </nav>
+    </header>
+    <div class="main">
+        <section class="contenido">
+            @RenderBody()
+        </section>
+    </div>
+</body>
+</html>

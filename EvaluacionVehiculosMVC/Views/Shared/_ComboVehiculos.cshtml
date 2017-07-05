@@ -1,0 +1,10 @@
+﻿@model IEnumerable<EvaluacionVehiculosMVC.Models.VehiculosDuenos>
+
+<h3>Seleccione un Veh&iacute;culo</h3>
+<br />
+@Html.DropDownList("cboVehiculos",null, "Seleccione un vehículo", new { onchange = "damelaData();"})
+<br />
+<br />
+<br />
+<hr />
+<br />

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<EvaluacionVehiculosMVC.Models.VehiculosDuenos>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="buscar">
+    @using (Html.BeginForm("BuscarVehiculo", "Vehiculo"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+
+        @Html.Label("Buscar Patente")<br />
+        <input data-val="true" data-val-length="Ingresar un máximo de 8 caracteres y un mínimo de 6" data-val-length-max="8" data-val-length-min="6" data-val-regex="El formato de la patente debe ser AA-BB-11" data-val-regex-pattern="^([a-zA-Z]{2})-?([a-zA-Z]{2})-?(\d{2})$" data-val-required="El campo Patente es obligatorio." id="Patente" name="Patente" type="text" value="" placeholder="Formato AA-BB-11" aria-required="true" class="valid" aria-describedby="Patente-error" aria-invalid="false">
+        <input type="submit" value="Buscar" /><span class="field-validation-valid" data-valmsg-for="Patente" data-valmsg-replace="true"></span>
+    }
+</div>
+<br />
+<p>
+    @Html.ActionLink("Crear Nuevo", "CrearVehiculo")
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCompleto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anno)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Anno)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalles", "DetallesVehiculo", new { id = item.IdVehiculo })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Regresar al Home", "Index", "Home")
+</div>
+@Scripts.Render("~/bundles/myscripts")

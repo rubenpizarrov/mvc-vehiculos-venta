@@ -1,0 +1,10 @@
+﻿@model IEnumerable<EvaluacionVehiculosMVC.Models.VehiculosDuenos>
+
+<select id="IdDueno" name="IdDueno">
+    <option value="0">Seleccione un Dueño</option>
+    @foreach (var item in Model)
+    {
+            <option value="@item.IdDueno">@item.NombreCompleto</option>
+    }
+    
+</select>

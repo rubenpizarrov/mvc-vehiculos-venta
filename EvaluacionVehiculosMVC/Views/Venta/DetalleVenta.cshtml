@@ -1,0 +1,69 @@
+﻿@model EvaluacionVehiculosMVC.DataModels.Ventas
+
+@{
+    ViewBag.Title = "DetalleVenta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalle de su Compra</h2>
+@using (Html.BeginForm("ConfirmarVenta", "Venta"))
+{
+
+    <legend>Confirme su Compra</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.FechaVenta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaVenta)
+        @Html.HiddenFor(model => model.FechaVenta)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Patente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Patente)
+        @Html.HiddenFor(model => model.Patente)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.RUTDueno)
+    </div>
+    <div class="display-field">
+        @String.Format("{0:##.###.###-#}", Model.RUTDueno)
+        @Html.HiddenFor(model => model.RUTDueno)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.TotalBruto)
+    </div>
+    <div class="display-field">
+        @String.Format("{0:C}", Model.TotalBruto)
+        @Html.HiddenFor(model => model.TotalBruto)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.IVA)
+    </div>
+    <div class="display-field">
+        @String.Format("{0:C}", Model.IVA)
+        @Html.HiddenFor(model => model.IVA)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.TotalVenta)
+    </div>
+    <div class="display-field">
+        @String.Format("{0:C}", Model.TotalVenta)
+        @Html.HiddenFor(model => model.TotalVenta)
+    </div>
+
+    <br />
+    <p><input type="submit" value="Confirmar Compra" /></p>
+    <input type="button" value="Cancelar" onclick="@("window.location.href='" + @Url.Action("Index", "Venta") + "'");" />
+}
+<br />
+<p>
+    @Html.ActionLink("Cancelar", "Index", "Venta")
+</p>

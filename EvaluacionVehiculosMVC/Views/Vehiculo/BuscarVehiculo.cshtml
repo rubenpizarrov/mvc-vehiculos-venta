@@ -1,0 +1,84 @@
+﻿@model EvaluacionVehiculosMVC.Models.VehiculosDuenos
+
+@{
+    ViewBag.Title = "Buscar Vehículo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Buscar Veh&iacute;culo</h2>
+
+<p>
+    @Html.ActionLink("Create Nuevo", "CrearVehiculo")
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdVehiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdDueno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCompleto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioEnUF)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+       
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.IdVehiculo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.IdDueno)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => Model.NombreCompleto)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Patente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Anno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.PrecioEnUF)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "EditarVehiculo", new { id = Model.IdVehiculo }) |
+                    @Html.ActionLink("Detalles", "DetallesVehiculo", new { id = Model.IdVehiculo }) |
+                    @Html.ActionLink("Eliminar", "EliminarVehiculo", new { id = Model.IdVehiculo })
+                </td>
+            </tr>
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+
+@Scripts.Render("~/bundles/myscripts")

@@ -1,0 +1,41 @@
+﻿@model EvaluacionVehiculosMVC.DataModels.Dueno
+
+<fieldset>
+    <legend>Detalles Due&ntilde;o</legend>
+
+    <table>
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.RUT)</th>
+                <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+                <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                <th>@Html.DisplayNameFor(model => model.FechaRegistro)</th>
+                <th>Vender</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(model => model.RUT)</td>
+                <td>@Html.DisplayFor(model => model.Nombre)</td>
+                <td>@Html.DisplayFor(model => model.Apellido)</td>
+                <td>@Html.DisplayFor(model => model.Telefono)</td>
+                <td>@Html.DisplayFor(model => model.FechaRegistro)</td>
+
+
+                <td>
+                    @Ajax.ActionLink("Seleccionar Vehiculos", "ComboVehiculos", new { id = Model.IdDueno }, new AjaxOptions()
+                    {
+                        HttpMethod = "GET",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "divDueno"
+                    }, new { @onclick = "showDetalle();" })
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+<hr />
+<br />

@@ -1,0 +1,73 @@
+﻿@model EvaluacionVehiculosMVC.DataModels.Vehiculo
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Crear Vehículo</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Patente)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Patente)
+                @Html.ValidationMessageFor(model => model.Patente)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Marca)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Marca)
+                @Html.ValidationMessageFor(model => model.Marca)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Modelo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Modelo)
+                @Html.ValidationMessageFor(model => model.Modelo)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Anno)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Anno)
+                @Html.ValidationMessageFor(model => model.Anno)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.PrecioEnUF)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.PrecioEnUF)
+                @Html.ValidationMessageFor(model => model.PrecioEnUF)
+            </div>
+
+            <div class="editor-label">
+                Seleccione Dueño
+            </div>
+            <div class="editor-field">
+                @Html.Action("_ComboDuenosPartial", "Vehiculo")
+            </div>
+            <br />
+            <p>
+                <input type="submit" value="Crear" />
+            </p>
+            <br />
+        </fieldset>
+    }
+    
+    <div>
+        @Html.ActionLink("Regresar", "Index")
+    </div>
+
+@Scripts.Render("~/bundles/myscripts")

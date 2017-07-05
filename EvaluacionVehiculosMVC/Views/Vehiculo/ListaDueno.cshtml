@@ -1,0 +1,86 @@
+﻿@model IEnumerable<EvaluacionVehiculosMVC.Models.VehiculosDuenos>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Vehiculos de este Due&ntilde;o</h2>
+<br />
+<p>
+    @Html.ActionLink("Crear Vehiculo", "CrearVehiculo", "Vehiculo")
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdVehiculo)
+            </th>
+       
+        
+            <th>
+                @Html.DisplayNameFor(model => model.IdDueno)
+            </th>
+        
+        
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCompleto)
+            </th>
+        
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Patente)
+            </th>
+        
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+       
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+       
+            <th>
+                @Html.DisplayNameFor(model => model.Anno)
+            </th>
+        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdVehiculo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdDueno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Anno)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "EditarVehiculo", new { id = item.IdVehiculo }) |
+                    @Html.ActionLink("Detalles", "DetallesVehiculo", new { id = item.IdVehiculo }) |
+                    @Html.ActionLink("Eliminar", "EliminarVehiculo", new { id = item.IdVehiculo })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Regresar", "Index", "Dueno")
+</div>

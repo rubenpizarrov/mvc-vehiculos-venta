@@ -1,0 +1,68 @@
+﻿@model EvaluacionVehiculosMVC.DataModels.Dueno
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar Due&ntilde;o</h2>
+<hr />
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Editar Due&ntilde;o</legend>
+    
+                @Html.HiddenFor(model => model.IdDueno)
+                
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RUT)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.RUT, new { @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.RUT)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Nombre)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Nombre)
+                @Html.ValidationMessageFor(model => model.Nombre)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Apellido)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Apellido)
+                @Html.ValidationMessageFor(model => model.Apellido)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Telefono)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Telefono)
+                @Html.ValidationMessageFor(model => model.Telefono)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FechaRegistro)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FechaRegistro)
+                @Html.ValidationMessageFor(model => model.FechaRegistro)
+            </div>
+    <br />
+            <p>
+                <input type="submit" value="Actualizar" />
+            </p>
+        </fieldset>
+    }
+    <br />
+    <div>
+        @Html.ActionLink("Regresar", "Index")
+    </div>
+    
+@Scripts.Render("~/bundles/myscripts")

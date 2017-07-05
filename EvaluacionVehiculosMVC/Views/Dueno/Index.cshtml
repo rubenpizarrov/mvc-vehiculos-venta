@@ -1,0 +1,86 @@
+﻿@model IEnumerable<EvaluacionVehiculosMVC.DataModels.Dueno>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="buscar">
+    @using (Html.BeginForm("BuscarDueno", "Dueno"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        
+        
+    @Html.Label("Buscar")<br />
+    <input class="text-box single-line" placeholder="Formato RUT: 11222333K" data-val="true" data-val-length="El RUT es demasiado largo" data-val-length-max="9" data-val-required="Debe Ingresar un RUT." id="RUT" name="RUT" value="" />
+    
+        <input type="submit" value="Buscar" /><span class="field-validation-valid" data-valmsg-for="RUT" data-valmsg-replace="true"></span>
+    }
+</div>
+<br />
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdDueno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RUT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdDueno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RUT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @item.FechaRegistro.ToShortDateString()
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdDueno }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.IdDueno }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdDueno }) |
+                    @Html.ActionLink("Listar Vehículos", "ListaDueno", "Vehiculo", new { id = item.IdDueno }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Regresar", "Index", "Home")
+</div>
+
+@Scripts.Render("~/bundles/myscripts")

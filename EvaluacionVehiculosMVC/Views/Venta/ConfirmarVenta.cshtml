@@ -1,0 +1,65 @@
+﻿@model EvaluacionVehiculosMVC.DataModels.Ventas
+
+@{
+    ViewBag.Title = "ConfirmarVenta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ConfirmarVenta</h2>
+
+<fieldset>
+    <legend>Ventas</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdVenta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdVenta)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaVenta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaVenta)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Patente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Patente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalVenta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalVenta)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IVA)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IVA)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalBruto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalBruto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RUTDueno)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RUTDueno)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

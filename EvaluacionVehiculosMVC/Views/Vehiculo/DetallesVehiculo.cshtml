@@ -1,0 +1,72 @@
+﻿@model EvaluacionVehiculosMVC.Models.VehiculosDuenos
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Detalles del Veh&iacute;culo</h2>
+<hr />
+    <fieldset>
+        <legend>Detalles</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.IdVehiculo)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.IdVehiculo)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.IdDueno)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.IdDueno)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.NombreCompleto)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.NombreCompleto)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Patente)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Patente)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Marca)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Marca)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Modelo)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Modelo)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Anno)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Anno)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.PrecioEnUF)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PrecioEnUF)
+        </div>
+
+    </fieldset>
+<br />
+    <p>
+        @Html.ActionLink("Editar", "EditarVehiculo", new { id = Model.IdVehiculo }) |
+        @Html.ActionLink("Regresar", "Index")
+    </p>
