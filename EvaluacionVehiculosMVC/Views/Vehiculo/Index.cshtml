@@ -38,6 +38,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Anno)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioEnUF)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -59,6 +62,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Anno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioEnUF)
                 </td>
                 <td>
                     @Html.ActionLink("Detalles", "DetallesVehiculo", new { id = item.IdVehiculo })

@@ -119,7 +119,7 @@ tbody td {
 }
 
 td:last-child {
-    text-align: right;
+    text-align:justify;
     padding-right: 10px;
 }
 

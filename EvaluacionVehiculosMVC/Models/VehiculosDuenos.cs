@@ -16,7 +16,6 @@ namespace EvaluacionVehiculosMVC.Models
         [Display(Name = "Nombre Dueño")]
         [Required]
         public string NombreCompleto { get { return Nombre + " " + Apellido; } }
-        
 
     }
 }
