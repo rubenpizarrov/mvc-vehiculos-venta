@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    $('input#RUT').on('blur', function () {
+    $('input#RUT').on('keyup', function () {
         var rut = $(this).val();
         rut = $.trim(rut);
         rut = rut.split('-').join('').split('.').join('');

@@ -93,7 +93,7 @@ namespace EvaluacionVehiculosMVC.DataModels
             {
                 using (var db = new BDEvaluacionVehiculosEntities())
                 {
-                    if (venta != null)
+                    if (venta != null && !string.IsNullOrEmpty(userCode))
                     {
 
                         db.Ventas.Add(venta);
