@@ -39,6 +39,7 @@ namespace EvaluacionVehiculosMVC.DataModels
         [Range(0, 99.99)]
         [RegularExpression(@"\d+(\,\d{0,2})?$")]
         [DisplayName("Pecio en UF")]
+        [DisplayFormat(DataFormatString= "{0:00.00} UF")]
         public decimal PrecioEnUF { get; set; }
     }
 }
