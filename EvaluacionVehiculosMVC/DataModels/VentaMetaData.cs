@@ -20,14 +20,14 @@ namespace EvaluacionVehiculosMVC.DataModels
         [DataType(DataType.Date)]
         public System.DateTime FechaVenta { get; set; }
         public string Patente { get; set; }
-        [DisplayFormat(DataFormatString = "{0:C}")]
-        [DisplayName("Total de la Venta")]
+        [DisplayFormat(DataFormatString = "{0:C} CLP")]
+        [DisplayName("Total Venta")]
         public decimal TotalVenta { get; set; }
-        [DisplayFormat(DataFormatString = "{0:C}")]
-        [DisplayName("Impuesto IVA 19% CLP")]
+        [DisplayFormat(DataFormatString = "{0:C} CLP")]
+        [DisplayName("Impuesto IVA 19%")]
         public decimal IVA { get; set; }
-        [DisplayFormat(DataFormatString = "{0:C}")]
-        [DisplayName("Valor Bruto en CLP")]
+        [DisplayFormat(DataFormatString = "{0:C} CLP")]
+        [DisplayName("Valor Bruto")]
         public decimal TotalBruto { get; set; }
         [DisplayName("RUT Dueño")]
         public string RUTDueno { get; set; }
