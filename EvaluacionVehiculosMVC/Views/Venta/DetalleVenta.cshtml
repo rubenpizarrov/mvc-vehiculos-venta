@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Detalle de su Compra</h2>
+<h2>Confirme su Compra</h2>
+<hr />
+<br />
 @using (Html.BeginForm("ConfirmarVenta", "Venta"))
 {
-
-    <legend>Confirme su Compra</legend>
 
     <div class="display-label">
         @Html.DisplayNameFor(model => model.FechaVenta)
@@ -31,7 +31,7 @@
         @Html.DisplayNameFor(model => model.RUTDueno)
     </div>
     <div class="display-field">
-        @String.Format("{0:##.###.###-#}", Model.RUTDueno)
+        @Html.DisplayFor(model => model.RUTDueno)
         @Html.HiddenFor(model => model.RUTDueno)
     </div>
 
@@ -39,7 +39,7 @@
         @Html.DisplayNameFor(model => model.TotalBruto)
     </div>
     <div class="display-field">
-        @String.Format("{0:C}", Model.TotalBruto)
+        @Html.DisplayFor(model => model.TotalBruto)
         @Html.HiddenFor(model => model.TotalBruto)
     </div>
 
@@ -47,7 +47,7 @@
         @Html.DisplayNameFor(model => model.IVA)
     </div>
     <div class="display-field">
-        @String.Format("{0:C}", Model.IVA)
+        @Html.DisplayFor(model => model.IVA)
         @Html.HiddenFor(model => model.IVA)
     </div>
 
@@ -55,7 +55,7 @@
         @Html.DisplayNameFor(model => model.TotalVenta)
     </div>
     <div class="display-field">
-        @String.Format("{0:C}", Model.TotalVenta)
+        @Html.DisplayFor(model => model.TotalVenta)
         @Html.HiddenFor(model => model.TotalVenta)
     </div>
 

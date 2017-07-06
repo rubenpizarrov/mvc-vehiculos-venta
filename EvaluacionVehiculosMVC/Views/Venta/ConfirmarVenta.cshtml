@@ -5,11 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ConfirmarVenta</h2>
 
+<h2>Detalle de su Compra</h2>
+<br />
+<hr />
+<br />
 <fieldset>
-    <legend>Ventas</legend>
-
+    
     <div class="display-label">
          @Html.DisplayNameFor(model => model.IdVenta)
     </div>
@@ -32,34 +34,34 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.TotalVenta)
+        @Html.DisplayNameFor(model => model.RUTDueno)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.TotalVenta)
+        @Html.DisplayFor(model => model.RUTDueno)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.IVA)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.IVA)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.TotalBruto)
+        @Html.DisplayNameFor(model => model.TotalBruto)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.TotalBruto)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.RUTDueno)
+        @Html.DisplayNameFor(model => model.IVA)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.RUTDueno)
+        @Html.DisplayFor(model => model.IVA)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalVenta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalVenta)
     </div>
 </fieldset>
+<br />
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver al Inicio", "Index", "Home")
 </p>
