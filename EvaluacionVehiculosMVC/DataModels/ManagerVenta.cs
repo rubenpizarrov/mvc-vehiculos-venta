@@ -124,12 +124,10 @@ namespace EvaluacionVehiculosMVC.DataModels
                 var query = (from oVehiculo in db.Vehiculo
                              join oVenta in db.Ventas
                              on oVehiculo.Patente equals oVenta.Patente
-                             where oVehiculo.IdDueno != 0
                              select oVehiculo).Single();
                 vehiculo = query;
-                vehiculo.IdDueno = 0;
                 db.Vehiculo.Attach(vehiculo);
-                db.Entry(vehiculo).State = System.Data.EntityState.Modified;
+                db.Entry(vehiculo).State = System.Data.EntityState.Deleted;
                 db.SaveChanges();
             }
         }

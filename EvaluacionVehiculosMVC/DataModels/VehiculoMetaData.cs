@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -37,6 +38,7 @@ namespace EvaluacionVehiculosMVC.DataModels
         [Required]
         [Range(0, 99.99)]
         [RegularExpression(@"\d+(\,\d{0,2})?$")]
+        [DisplayName("Pecio en UF")]
         public decimal PrecioEnUF { get; set; }
     }
 }
