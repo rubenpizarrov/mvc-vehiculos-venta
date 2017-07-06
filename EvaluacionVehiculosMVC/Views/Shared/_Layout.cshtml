@@ -26,15 +26,17 @@
                 <li>@Html.ActionLink("Vehículos", "Index", "Vehiculo")</li>
                 <li>@Html.ActionLink("Ventas", "Index", "Venta")</li>
             </ul>
-            <div>@Html.ActionLink("LogOut", "LogOut", "Login")</div>
-           
             @{
                 string user = Session["username"].ToString();
                 string[] newuser = user.Split(' ');
                 string userName = newuser[2].ToString() + " " + newuser[0].ToString() + " " + newuser[1].ToString();
-                 
+
             }
-            <h3>Bienvenido @userName.</h3>
+            <h4>Bienvenido @userName.</h4>
+            @Html.ActionLink("Cerrar Sesión", "LogOut", "Login", null, new { @class = "sesion" })
+           
+            
+            
 
             
         </nav>

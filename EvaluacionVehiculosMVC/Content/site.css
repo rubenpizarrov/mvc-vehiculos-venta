@@ -28,21 +28,25 @@ header {
     background: #fff;
     width: 90%;
     max-width: 1000px;
-    margin: 20px auto;
+    margin: 10px auto 0px auto;
 }
 
     header nav {
         background: #009688;
         overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
         header nav ul {
             list-style: none;
+            display:flex;
         }
 
-            header nav ul li {
+            /*header nav ul li {
                 float: left;
-            }
+            }*/
 
                 header nav ul li a {
                     padding: 10px 20px;
@@ -54,7 +58,21 @@ header {
 
                     header nav ul li a:hover {
                         background: #B2DFDB;
+                        color: #00897b;
                     }
+
+        header nav h4 {
+            color:white;
+        }
+
+        header nav a.sesion {
+            color:white;
+            padding: 0px 20px;
+        }
+
+        header nav a.sesion:hover {
+           color:#000000;
+        }
 
 th, h1, h2, h3, h4, h5, h6 {
     font-family: open_sanssemibold;

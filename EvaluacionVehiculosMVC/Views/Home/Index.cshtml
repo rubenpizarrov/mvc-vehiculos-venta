@@ -1,11 +1,11 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+   
+        string user = Session["username"].ToString();
+        string[] newuser = user.Split(' ');
+        string userName = newuser[2].ToString() + " " + newuser[0].ToString() + " " + newuser[1].ToString();
+
 }
 
 
-    <div>
-        @Html.ActionLink("CRUD Dueños", "Index", "Dueno")
-    </div>
-    <div>
-        @Html.ActionLink("CRUD Vehiculos", "Index", "Vehiculo")
-    </div>
+    <h1>Bienvenido @userName.</h1>
