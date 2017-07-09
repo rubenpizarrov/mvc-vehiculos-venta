@@ -183,6 +183,61 @@ input#Patente:-ms-input-placeholder {
     font-style: italic;
 }
 
+/*form .botones {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #009688;
+  border: 0;
+  padding: 5px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+form .botones:hover, form botones:active, form botones:focus {
+  background: #00796B;
+}*/
+
+form input[type=submit], input[type=button] {
+	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+form input[type=submit]:hover, input[type=button]:hover {
+	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+}
+form input[type=submit]:active, input[type=button]:active {
+	position:relative;
+	top:1px;
+}
+
+form input[type=text], input[type=number], select {
+  font-family: 'open_sansregular', sans-serif;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+form label, .editor-label, .display-label {
+    font-family: 'open_sansbold', sans-serif;
+}
+
+
 /*Validaciones estilos*/
 .validation-summary-errors {
     background: #fff;
