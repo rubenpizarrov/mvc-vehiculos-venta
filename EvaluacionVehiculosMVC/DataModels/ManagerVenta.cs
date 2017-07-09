@@ -98,10 +98,20 @@ namespace EvaluacionVehiculosMVC.DataModels
 
                         db.Ventas.Add(venta);
                         db.SaveChanges();
-                        var logged = ws.LoggedPurchase(userCode, "Venta Patente: " + venta.Patente.ToString() + "\n Rut Dueño: " + venta.RUTDueno.ToString() + "\n Total Venta: " + venta.TotalVenta.ToString());
-                        logStatus = logged.LogStatus;
-                        logMessage = logged.LogMessage;
-                        EliminarVehiculoDueno(venta);
+                        string service = "Venta Patente: " + venta.Patente.ToString() + "\n Rut Dueño: " + venta.RUTDueno.ToString() + "\n Total Venta: " + string.Format("{0:C}", venta.TotalVenta);
+                        bool seEliminoVehiculo = EliminarVehiculoDueno(venta);
+                        if (seEliminoVehiculo)
+                        {
+                            var logged = ws.LoggedPurchase(userCode, service);
+                            logStatus = logged.LogStatus;
+                            logMessage = logged.LogMessage;
+                        }
+                        else
+                        {
+                            return string.Empty;
+                        }
+
+
                     }
                 }
                 return (logStatus + " " + logMessage);
@@ -114,21 +124,29 @@ namespace EvaluacionVehiculosMVC.DataModels
 
         }
 
-        public void EliminarVehiculoDueno(DataModels.Ventas venta)
+        public bool EliminarVehiculoDueno(DataModels.Ventas venta)
         {
-
-            DataModels.Ventas ventas = venta;
             DataModels.Vehiculo vehiculo = new Vehiculo();
-            using (var db = new BDEvaluacionVehiculosEntities())
+            try
             {
-                var query = (from oVehiculo in db.Vehiculo
-                             join oVenta in db.Ventas
-                             on oVehiculo.Patente equals oVenta.Patente
-                             select oVehiculo).Single();
-                vehiculo = query;
-                db.Vehiculo.Attach(vehiculo);
-                db.Entry(vehiculo).State = System.Data.EntityState.Deleted;
-                db.SaveChanges();
+                using (var db = new BDEvaluacionVehiculosEntities())
+                {
+                    var query = (from oVehiculo in db.Vehiculo
+                                 join oVenta in db.Ventas
+                                 on oVehiculo.Patente equals oVenta.Patente
+                                 where oVehiculo.Patente == venta.Patente
+                                 select oVehiculo).FirstOrDefault();
+                    vehiculo = query;
+                    db.Vehiculo.Attach(vehiculo);
+                    db.Entry(vehiculo).State = System.Data.EntityState.Deleted;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
             }
         }
 
@@ -141,7 +159,7 @@ namespace EvaluacionVehiculosMVC.DataModels
                 {
                     var query = (from oDueno in db.Dueno
                                  where oDueno.IdDueno == idDueno
-                                 select oDueno).Single();
+                                 select oDueno).FirstOrDefault();
                     string RUT = query.RUT;
                     return RUT;
                 }
@@ -161,7 +179,7 @@ namespace EvaluacionVehiculosMVC.DataModels
                 {
                     var query = (from oVehiculo in db.Vehiculo
                                  where oVehiculo.IdVehiculo == idVehiculo
-                                 select oVehiculo).Single();
+                                 select oVehiculo).FirstOrDefault();
                     string patente = query.Patente;
                     return patente;
                 }
