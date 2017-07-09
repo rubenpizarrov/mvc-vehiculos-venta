@@ -16,6 +16,7 @@ body {
     background: #fff;
     width: 90%;
     max-width: 1000px;
+    min-height: 500px;
     margin: 0 auto;
 }
 

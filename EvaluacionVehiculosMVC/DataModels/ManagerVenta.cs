@@ -114,7 +114,7 @@ namespace EvaluacionVehiculosMVC.DataModels
 
         }
 
-        private void EliminarVehiculoDueno(DataModels.Ventas venta)
+        public void EliminarVehiculoDueno(DataModels.Ventas venta)
         {
 
             DataModels.Ventas ventas = venta;
@@ -132,6 +132,7 @@ namespace EvaluacionVehiculosMVC.DataModels
             }
         }
 
+        #region Metodos Privados
         private string ObtenerRutDueno(int idDueno)
         {
             try
@@ -215,5 +216,6 @@ namespace EvaluacionVehiculosMVC.DataModels
                 throw;
             }
         }
+        #endregion
     }
 }
