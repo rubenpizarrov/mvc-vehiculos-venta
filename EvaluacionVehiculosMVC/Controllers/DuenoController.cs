@@ -43,7 +43,7 @@ namespace EvaluacionVehiculosMVC.Controllers
             }
             else
             {
-                TempData["MensajeBusquedaError"] = "Dueno No encontrado";
+                TempData["MensajeBusquedaError"] = "No se encontró el Dueño en la base de datos";
                 return RedirectToAction("Index");
             }
 

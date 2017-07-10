@@ -11,6 +11,14 @@ namespace EvaluacionVehiculosMVC.Controllers
 
         public ActionResult Index()
         {
+            if (TempData["MensajeErrorVehiculo"] != null)
+            {
+                ViewBag.MensajeBusquedaError = TempData["MensajeErrorVehiculo"] = "Vehículo no encontrado";
+            }
+            else
+            {
+                ViewBag.MensajeBusquedaError = "";
+            }
             DataModels.ManagerVehiculos managerVehiculo = new DataModels.ManagerVehiculos();
             List<Models.VehiculosDuenos> listaVehiculos = managerVehiculo.ListarVehiculos();
             return View(listaVehiculos);
@@ -37,7 +45,8 @@ namespace EvaluacionVehiculosMVC.Controllers
             }
             else
             {
-                return RedirectToAction("NoEncontrado");
+                TempData["MensajeErrorVehiculo"] = "Vehículo no encontrado";
+                return RedirectToAction("Index");
             }
 
         }

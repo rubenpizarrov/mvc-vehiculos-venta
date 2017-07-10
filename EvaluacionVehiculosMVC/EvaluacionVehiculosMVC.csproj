@@ -362,8 +362,6 @@
     <Content Include="Views\Vehiculo\EliminarVehiculo.cshtml" />
     <Content Include="Views\Dueno\BuscarDueno.cshtml" />
     <Content Include="Views\Vehiculo\BuscarVehiculo.cshtml" />
-    <Content Include="Views\Dueno\NoEncontrado.cshtml" />
-    <Content Include="Views\Vehiculo\NoEncontrado.cshtml" />
     <None Include="Service References\WSEvaluacionInacap\WSEvaluacionInacap.wsdl" />
     <Content Include="Views\Shared\_ComboVehiculos.cshtml" />
     <Content Include="Views\Venta\Index.cshtml" />
