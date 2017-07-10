@@ -10,6 +10,15 @@ namespace EvaluacionVehiculosMVC.Controllers
     {
         public ActionResult Index()
         {
+            if (TempData["MensajeBusquedaError"] != null)
+            {
+                ViewBag.MensajeBusquedaError = TempData["MensajeBusquedaError"] = "Dueño no encontrado";
+            }
+            else
+            {
+                ViewBag.MensajeBusquedaError = "";
+            }
+            
             DataModels.ManagerDuenos managerDuenos = new DataModels.ManagerDuenos();
             List<DataModels.Dueno> listaDuenos = managerDuenos.ListarDueno();
             return View(listaDuenos);
@@ -29,19 +38,16 @@ namespace EvaluacionVehiculosMVC.Controllers
             DataModels.Dueno dueno = manager.BuscarDuenoVista(rut);
             if (dueno.IdDueno != 0)
             {
+                
                 return View(dueno);
             }
             else
             {
-                return RedirectToAction("NoEncontrado");
+                TempData["MensajeBusquedaError"] = "Dueno No encontrado";
+                return RedirectToAction("Index");
             }
 
 
-        }
-
-        public ActionResult NoEncontrado()
-        {
-            return View();
         }
 
         public ActionResult Details(int id)

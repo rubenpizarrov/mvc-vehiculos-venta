@@ -259,7 +259,7 @@ form label, .editor-label, .display-label {
     color:red;
 }
 
-#error_venta {
+p#errores {
     margin-left: 10px;
     font-weight: bold;
     font-size: 0.9em;

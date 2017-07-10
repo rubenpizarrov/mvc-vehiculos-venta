@@ -11,13 +11,13 @@ namespace EvaluacionVehiculosMVC.Controllers
        
         public ActionResult Index()
         {
-            if (TempData["Mensaje"] != null)
+            if (TempData["MensajeVentaError"] != null)
             {
-                ViewBag.Mensaje = TempData["Mensaje"].ToString();
+                ViewBag.MensajeVentaError = TempData["MensajeVentaError"].ToString();
             }
             else
             {
-                ViewBag.Mensaje = "";
+                ViewBag.MensajeVentaError = "";
             }
             
             return View();
@@ -64,7 +64,7 @@ namespace EvaluacionVehiculosMVC.Controllers
             }
             else
             {
-                TempData["Mensaje"] = "Hay Problemas con el servicio inténtelo más tarde";
+                TempData["MensajeVentaError"] = "Hay Problemas con el servicio inténtelo más tarde";
                 return RedirectToAction("Index");
             }
             
