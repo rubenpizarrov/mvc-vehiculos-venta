@@ -73,7 +73,7 @@ namespace EvaluacionVehiculosMVC.DataModels
             }
         }
 
-        public DataModels.Ventas CrearVenta(int idDueno, int idVehiculo)
+        public DataModels.Ventas CrearVistaVenta(int idDueno, int idVehiculo)
         {
             DataModels.Ventas venta = new DataModels.Ventas();
             venta.Patente = ObtenerPatente(idVehiculo);
@@ -98,7 +98,7 @@ namespace EvaluacionVehiculosMVC.DataModels
 
                         db.Ventas.Add(venta);
                         db.SaveChanges();
-                        string service = "Venta Patente: " + venta.Patente.ToString() + "\n Rut Dueño: " + venta.RUTDueno.ToString() + "\n Total Venta: " + string.Format("{0:C}", venta.TotalVenta);
+                        string service = "Venta Patente: " + venta.Patente.ToString() + " Rut Dueño: " + venta.RUTDueno.ToString() + " Total Venta: " + string.Format("{0:C}", venta.TotalVenta);
                         bool seEliminoVehiculo = EliminarVehiculoDueno(venta);
                         if (seEliminoVehiculo)
                         {
@@ -205,9 +205,17 @@ namespace EvaluacionVehiculosMVC.DataModels
                     DateTime fecha = DateTime.Today;
                     string fecha_consulta = fecha.ToString("yyyy-MM-dd");
                     var resultUF = ws.GetUFValue(fecha_consulta);
-                    decimal ValorUF = decimal.Parse(resultUF.UFValues, CultureInfo.InvariantCulture);
-                    decimal ValorBruto = (decimal)vehiculo.PrecioEnUF * ValorUF;
-                    return ValorBruto;
+                    if (resultUF.IsValudOrMessage.Contains("[GET_OK]") && resultUF.UFValues != null)
+                    {
+                        decimal ValorUF = decimal.Parse(resultUF.UFValues, CultureInfo.InvariantCulture);
+                        decimal ValorBruto = (decimal)vehiculo.PrecioEnUF * ValorUF;
+                        return ValorBruto; 
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                    
                 }
             }
             catch (Exception)

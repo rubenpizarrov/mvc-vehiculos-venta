@@ -50,6 +50,8 @@
 </script>
 
 <h3>Proceso de Venta</h3>
+
+<p id="error_venta">@ViewBag.Mensaje</p>
 @using (Ajax.BeginForm("BuscaDuenoVehiculo", "Venta",
         new AjaxOptions
         {

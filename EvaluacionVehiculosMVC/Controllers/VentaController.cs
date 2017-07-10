@@ -11,6 +11,15 @@ namespace EvaluacionVehiculosMVC.Controllers
        
         public ActionResult Index()
         {
+            if (TempData["Mensaje"] != null)
+            {
+                ViewBag.Mensaje = TempData["Mensaje"].ToString();
+            }
+            else
+            {
+                ViewBag.Mensaje = "";
+            }
+            
             return View();
         }
         public PartialViewResult BuscaDuenoVehiculo(string rut)
@@ -48,11 +57,21 @@ namespace EvaluacionVehiculosMVC.Controllers
         public ActionResult DetalleVenta(Models.VehiculosDuenos model)
         {
             DataModels.ManagerVenta man = new DataModels.ManagerVenta();
-            DataModels.Ventas venta = man.CrearVenta(model.IdDueno, model.IdVehiculo);
-            return View(venta);
+            DataModels.Ventas venta = man.CrearVistaVenta(model.IdDueno, model.IdVehiculo);
+            if (venta.TotalVenta != 0)
+            {
+                return View(venta);
+            }
+            else
+            {
+                TempData["Mensaje"] = "Hay Problemas con el servicio inténtelo más tarde";
+                return RedirectToAction("Index");
+            }
+            
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult ConfirmarVenta(DataModels.Ventas model)
         {
             DataModels.ManagerVenta man = new DataModels.ManagerVenta();
