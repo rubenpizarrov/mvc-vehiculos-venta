@@ -64,7 +64,7 @@
     @Html.ValidationSummary(true)
     <div class="buscar">
         @Html.Label("Buscar Dueño:")<br />
-        <input class="text-box single-line input-validation-error" onkeypress="hideDetalle();" placeholder="11222333K" data-val-length="El RUT ingresado debe tener un formato 11222333K" data-val-length-max="9" data-val-length-min="8" data-val-regex="El RUT ingresado debe tener un formato 11222333K" data-val-regex-pattern="^([1-9]{1,2})([0-9]{3})([0-9]{3})([Kk0-9]{1})$" data-val-required="El campo RUT es obligatorio." id="RUT" name="RUT" type="text" value="" aria-required="true" aria-describedby="RUT-error" aria-invalid="true">
+        <input class="text-box single-line valid" data-val="true" onkeypress="hideDetalle();" placeholder="11222333K" data-val-length="El RUT ingresado debe tener un formato 11222333K" data-val-length-max="9" data-val-length-min="8" data-val-regex="El RUT ingresado debe tener un formato 11222333K" data-val-regex-pattern="^([1-9]{1,2})([0-9]{3})([0-9]{3})([Kk0-9]{1})$" data-val-required="El campo RUT es obligatorio." id="RUT" name="RUT" type="text" value="" aria-required="true" aria-describedby="RUT-error" aria-invalid="false">
         <input type="submit" id="buscar" class="botones" value="Buscar" /><span class="field-validation-valid" data-valmsg-for="RUT" data-valmsg-replace="true"></span><div id="validation"></div>
         
     </div>

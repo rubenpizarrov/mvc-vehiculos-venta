@@ -12,11 +12,11 @@ namespace EvaluacionVehiculosMVC.Controllers
         {
             if (TempData["MensajeBusquedaError"] != null)
             {
-                ViewBag.MensajeBusquedaError = TempData["MensajeBusquedaError"] = "Dueño no encontrado";
+                ViewBag.MensajeBusquedaError = TempData["MensajeBusquedaError"].ToString();
             }
             else
             {
-                ViewBag.MensajeBusquedaError = "";
+                ViewBag.MensajeBusquedaError = string.Empty;
             }
             
             DataModels.ManagerDuenos managerDuenos = new DataModels.ManagerDuenos();
@@ -31,14 +31,13 @@ namespace EvaluacionVehiculosMVC.Controllers
             return View(listaVehiculosDuenos);
         }
 
-
+        [HttpPost]
         public ActionResult BuscarDueno(string rut)
         {
             DataModels.ManagerDuenos manager = new DataModels.ManagerDuenos();
             DataModels.Dueno dueno = manager.BuscarDuenoVista(rut);
             if (dueno.IdDueno != 0)
             {
-                
                 return View(dueno);
             }
             else
@@ -113,7 +112,7 @@ namespace EvaluacionVehiculosMVC.Controllers
                 bool result = managerDuenos.ActualizarDueno(model);
                 if (!result)
                 {
-                    ModelState.AddModelError("", "El RUT es inválido");
+                    ModelState.AddModelError("", "El RUT ingresado no es válido");
                     return View(model);
                 }
                 else

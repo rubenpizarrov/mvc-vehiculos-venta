@@ -17,7 +17,7 @@ namespace EvaluacionVehiculosMVC.Controllers
             }
             else
             {
-                ViewBag.MensajeVentaError = "";
+                ViewBag.MensajeVentaError = string.Empty;
             }
             
             return View();

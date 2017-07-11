@@ -19,7 +19,7 @@ namespace EvaluacionVehiculosMVC.DataModels
         public int IdVehiculo { get; set; }
         [Required]
         [StringLength(8, MinimumLength = 6, ErrorMessage = "Debe ingresar {0} Ingresar un máximo de {1} caracteres y un mínimo de {2}")]
-        [RegularExpression(@"^([a-zA-Z]{2})-?([a-zA-Z]{2})-?(\d{2})$", ErrorMessage = "Ha ingresado una patente erronea")]
+        [RegularExpression(@"^([a-zA-Z]{2})-?([a-zA-Z]{2})-?(\d{2})$", ErrorMessage = "Ha ingresado una patente erronea el formato es: 11222333K")]
         [ValidacionPatente]
         public string Patente { get; set; }
         public int IdDueno { get; set; }
@@ -36,8 +36,8 @@ namespace EvaluacionVehiculosMVC.DataModels
         [RegularExpression(@"^[0-9]+$")]
         public Nullable<int> Anno { get; set; }
         [Required]
-        [Range(0, 99.99)]
-        [RegularExpression(@"\d+(\,\d{0,2})?$")]
+        [Range(1, 99.99, ErrorMessage = "El valor ingresado debe estar entre 1 y 99,99")]
+        [RegularExpression(@"\d+(\,\d{0,2})?$", ErrorMessage="El valor ingresado debe estar entre 1 y 99,99")]
         [DisplayName("Pecio en UF")]
         [DisplayFormat(DataFormatString= "{0:00.00} UF")]
         public decimal PrecioEnUF { get; set; }
