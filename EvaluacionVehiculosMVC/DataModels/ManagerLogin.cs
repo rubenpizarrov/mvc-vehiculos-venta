@@ -9,6 +9,26 @@ namespace EvaluacionVehiculosMVC.DataModels
     public class ManagerLogin
     {
         WSEvaluacionInacapSoapClient ws = new WSEvaluacionInacapSoapClient();
+
+        //public bool DisponibilidadServicio() 
+        //{
+        //    string resultado = string.Empty;
+        //    try
+        //    {
+        //        resultado = ws.TestConexion();
+        //        if (!string.IsNullOrEmpty(resultado))
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        return false;
+        //    }
+        //    return false;
+        //}
+
         public Models.User UserAuth(string userAlumno, string passwordAlumno) 
         {
             Models.User user = new Models.User();

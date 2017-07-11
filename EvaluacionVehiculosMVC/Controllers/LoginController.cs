@@ -13,6 +13,7 @@ namespace EvaluacionVehiculosMVC.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Autenticacion(Models.User model) 
         {
