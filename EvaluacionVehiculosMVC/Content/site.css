@@ -9,7 +9,7 @@
 body {
     background: #f2f2f2;
     font-size: 0.85em;
-    font-family: open_sansregular;
+    font-family: 'open_sansregular';
 }
 
 .main {
@@ -130,10 +130,6 @@ div.buscar {
 }
 
 /*helpers*/
-
-.display-label {
-    font-weight: bold;
-}
 
 input#RUT::-webkit-input-placeholder {
     font-size: 0.7em;
