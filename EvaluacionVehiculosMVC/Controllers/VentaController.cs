@@ -71,7 +71,6 @@ namespace EvaluacionVehiculosMVC.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult ConfirmarVenta(DataModels.Ventas model)
         {
             DataModels.ManagerVenta man = new DataModels.ManagerVenta();

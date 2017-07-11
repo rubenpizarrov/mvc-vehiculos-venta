@@ -60,10 +60,7 @@
     </div>
 
     <br />
-    <p><input type="submit" value="Confirmar Compra" /></p>
-    <input type="button" value="Cancelar" onclick="@("window.location.href='" + @Url.Action("Index", "Venta") + "'");" />
+    <div class="botonera"><input type="button" class="cancelar" value="Cancelar" onclick="@("window.location.href='" + @Url.Action("Index", "Venta") + "'");" /><input type="submit" value="Confirmar Compra" />
+    </div>
 }
 <br />
-<p>
-    @Html.ActionLink("Cancelar", "Index", "Venta")
-</p>

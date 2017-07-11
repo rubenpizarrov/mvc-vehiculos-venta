@@ -30,11 +30,7 @@ namespace EvaluacionVehiculosMVC.Controllers
             List<Models.VehiculosDuenos> listaVehiculosDueno = managerVehiculo.ListarVehiculosDuenos(id);
             return View(listaVehiculosDueno);
         }
-        /// <summary>
-        /// Busca un Vehiculo Para la Vista
-        /// </summary>
-        /// <param name=string "patente"></param>
-        /// <returns>VehiculoDueno Model</returns>
+        
         public ActionResult BuscarVehiculo(string patente)
         {
             DataModels.ManagerVehiculos managerVehiculo = new DataModels.ManagerVehiculos();
